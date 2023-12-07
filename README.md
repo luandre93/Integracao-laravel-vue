@@ -9,9 +9,9 @@
 
 <h4>Objetivo do Projeto</h4>
 
-Integração do laravel com VueJS, uma demonstracao simples alimentando o frontend com os dados vindo do Laravel + Banco de dados (Mysql).
+Integração do laravel com VueJS, uma demonstração simples, alimentando o frontend com os dados vindo do Laravel + Banco de dados (Mysql).
 
-<h4>Definindo - Controller Usuario</h4>
+<h4>Sobre - Controller Usuario</h4>
 
 -   <b>app/Http/Controllers/UsuarioController.php</b>
 
