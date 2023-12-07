@@ -13,24 +13,78 @@ Integração do laravel com VueJS, uma demonstracao simples alimentando o fronte
 
 <h4>Definindo - Controller Usuario</h4>
 
-<p>app/Http/Controllers/UsuarioController<p>
+-   <b>app/Http/Controllers/UsuarioController.php</b>
 
-<code>
+<p>Aqui é definido camada de controle dos dados que iremos renderizar.</p>
 
+```
 namespace App\Http\Controllers;
+
 use App\Models\Usuario;
-</code>
-<code>
+
 class UsuarioController extends Controller
 {
-public function index()
-{
-$users = Usuario::all();
-return view('home', ['users' => $users]);
+    public function index()
+    {
+        $users = Usuario::all();
+        return view('home', ['users' => $users]);
 
     }
-
 }
-</code>
+```
 
-<p>
+<h4>Sobre - Model Usuario</h4>
+
+-   <b>app/Http/Models/Usuario.php</b>
+
+<p>Aqui é definido quais campos iremos ler da tabela users do nosso banco de dados.</p>
+
+```
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Usuario extends Model
+{
+    protected $table = 'users';
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'username',
+        'email',
+        'permitted',
+        'user_ad',
+        'password',
+        'name',
+    ];
+}
+```
+
+<h4>Sobre - Pasta dos Components</h4>
+
+-   <b>app\resources\js</b>
+
+<p>Pasta responsavel por armazenar os arquivos do frontend </p>
+
+-   App.js - Arquivo responsavel por dar o start na renderização dos componentes.
+-   Components - Pasta que representa os nossos componentes .VUE.
+
+<h4>Sobre  - Pasta Views Blade</h4>
+
+-   <b>app\resources\views </b>
+
+Aonde fica armazenado os arquivos blade.php responsavel por fazer a renderização das paginas.
+
+<h4>Sobre  - Arquivo ".env"</h4>
+
+-   <b>.env</b>
+
+nesse arquivos definimos em qual banco de dados iremos conectar conforme abaixo.
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=crud
+DB_USERNAME=root
+DB_PASSWORD=
+```
